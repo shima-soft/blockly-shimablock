@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShimaBlock for Excel VBA</title>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-378735-20"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-378735-20');
+</script>
+<script src="closure/goog/base.js"></script>
+<script src="blockly_compressed.js"></script>
+<script src="blocks_compressed.js"></script>
+<script src="blocks/vba_apl.js"></script>
+<script src="blocks/vba_book.js"></script>
+<script src="blocks/vba_cell.js"></script>
+<script src="blocks/vba_get.js"></script>
+<script src="blocks/vba_method.js"></script>
+<script src="blocks/vba_set.js"></script>
+<script src="blocks/vba_sheet.js"></script>
+<script src="msg/js/ja.js"></script>
+<script src="generators/vba.js"></script>
+<script src="generators/vba/colour.js"></script>
+<script src="generators/vba/lists.js"></script>
+<script src="generators/vba/logic.js"></script>
+<script src="generators/vba/loops.js"></script>
+<script src="generators/vba/math.js"></script>
+<script src="generators/vba/procedures.js"></script>
+<script src="generators/vba/text.js"></script>
+<script src="generators/vba/variables.js"></script>
+<script src="generators/vba/variables_dynamic.js"></script>
+<script src="generators/vba/vba_apl.js"></script>
+<script src="generators/vba/vba_book.js"></script>
+<script src="generators/vba/vba_cell.js"></script>
+<script src="generators/vba/vba_get.js"></script>
+<script src="generators/vba/vba_method.js"></script>
+<script src="generators/vba/vba_set.js"></script>
+<script src="generators/vba/vba_sheet.js"></script>
+<script src="main.js"></script>
+</head>
+<body>
+<table width="100%">
+  <tbody>
+    <tr>
+      <td width="70%">
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td nowrap="nowrap">ShimaBlock for Excel VBA</td>
+              <td width="100%" style="text-align: center;">プロジェクト名：<input id="project_name" tyep="text" value="Main" onchange="setProcedureName();"></td>
+              <td nowrap="nowrap">
+                <input type="button" value="ホーム" onclick="location.href='index.html';">
+                <input type="button" value="開く" onclick="document.getElementById('loadButton').click();">
+                <input type="button" value="保存" onclick="document.getElementById('download').click();">
+                <input type="button" value="リセット" onclick="setStartBlock();">
+                <input id="loadButton" type="file" onchange="readXmlToWorkspace(this)" style="display: none;">
+                <a id="download" href="#" download="download.xml" onclick="downloadXml();" style="display: none;">download</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td width="30%">Excel VBA <button onclick="codeCopy();">codeCopy</button></td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><div id="blocklyDiv" style="height: 800px; width: 100%;"></div></td>
+      <td nowrap="nowrap"><textarea id="codeOutput" style="height: 800px; width: 100%;" wrap="off" readonly></textarea></td>
+    </tr>
+  </tbody>
+</table>
+
+<div>importExport</div><button onclick="toXml();">toXml</button><button onclick="fromXml();">fromXml</button>
+<textarea id="importExport" style="height: 600px; width: 100%;" readonly></textarea>
+<xml id="toolbox" style="display: none">
+  <category name="条件" colour="210">
+    <block type="controls_if"></block>
+    <block type="logic_compare"></block>
+    <block type="logic_operation"></block>
+    <block type="logic_boolean"></block>
+  </category>
+  <category name="繰り返し" colour="120">
+    <block type="controls_repeat_ext">
+      <value name="TIMES">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_for">
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+      <value name="BY">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_forEach_workbooks">
+      <value name="LIST">
+        <shadow type="book_workbooks"></shadow>
+      </value>
+      <value name="LIST">
+        <block type="book_workbooks"></block>
+      </value>
+    </block>
+    <block type="controls_forEach_worksheets">
+      <value name="LIST">
+       <shadow type="sheet_sheets"></shadow>
+      </value>
+      <value name="LIST">
+        <block type="sheet_book_sheets">
+          <value name="OBJECT_BOOK">
+            <block type="book_activeworkbook"></block>
+          </value>
+        </block>
+        </value>
+    </block>
+  </category>
+  <category name="数値" colour="230">
+    <block type="math_arithmetic">
+      <value name="A">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="B">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_number"></block>
+    <block type="math_random_int">
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+  </category>
+  <category name="テキスト" colour="210">
+    <block type="text"></block>
+    <block type="text_multiline"></block>
+    <block type="text_join"></block>
+    <block type="text_append"></block>
+    <block type="text_print"></block>
+  </category>
+    <sep></sep>
+    <category name="操作" colour="#5580aa" toolboxitemid="method">
+      <block type="method_book">
+        <value name="TARGET_OBJECT">
+          <shadow type="book_activeworkbook"></shadow>
+        </value>
+      </block>
+      <block type="method_sheet">
+        <value name="TARGET_OBJECT">
+          <shadow type="sheet_activesheet"></shadow>
+        </value>
+      </block>
+      <block type="method_cell">
+        <value name="TARGET_OBJECT">
+          <shadow type="cell_range"></shadow>
+        </value>
+      </block>
+      <block type="method_copy_paste2">
+        <value name="COPY_RANGE">
+          <shadow type="cell_cells">
+            <value name="ROW">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="COL">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>    
+          </shadow>
+        </value>
+        <value name="PASTE_RANGE">
+          <shadow type="cell_cells">
+            <value name="ROW">
+              <shadow type="math_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+            <value name="COL">
+              <shadow type="math_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>    
+          </shadow>
+        </value>
+      </block>
+      <block type="method_copy_paste">
+        <value name="COPY_RANGE">
+          <shadow type="cell_cells">
+            <value name="ROW">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="COL">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>    
+          </shadow>
+        </value>
+        <value name="PASTE_RANGE">
+          <shadow type="cell_cells">
+            <value name="ROW">
+              <shadow type="math_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+            <value name="COL">
+              <shadow type="math_number">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>    
+          </shadow>
+        </value>
+      </block>
+      <block type="method_pastespecial">
+        <value name="TARGET_OBJECT">
+          <shadow type="cell_range"></shadow>
+        </value>    
+      </block>
+      <block type="method_book_saveas">
+        <value name="TARGET_OBJECT">
+          <shadow type="book_activeworkbook"></shadow>
+        </value>
+        <value name="FILENAME">
+          <shadow  type="text">
+            <field name="TEXT">Book1.xlsx</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <category name="セット" colour="#7295b8" toolboxitemid="set">
+      <block type="set_name">
+        <value name="TARGET_OBJECT">
+          <shadow type="sheet_activesheet"></shadow>
+        </value>
+        <value name="NAME">
+          <shadow  type="text">
+            <field name="TEXT">変更後の名前</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="set_open"></block>
+    </category>
+    <category name="取得" colour="#8daac7" toolboxitemid="get">
+      <block type="get_name">
+        <value name="TARGET_OBJECT">
+          <shadow type="sheet_activesheet"></shadow>
+        </value>
+      </block>
+      <block type="get_end_row">
+        <value name="COL">
+          <shadow  type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="get_end_col">
+        <value name="ROW">
+          <shadow  type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <sep></sep>
+    <category name="ブック" colour="#478d47" toolboxitemid="book">
+      <label text="ブック用ブロック"></label>
+      <block type="book_workbooks"></block>
+      <block type="book_thisworkbook"></block>
+      <block type="book_activeworkbook"></block>
+      <block type="book_workbook">
+        <value name="BOOKNAME">
+          <shadow  type="text">
+            <field name="TEXT">Book1.xlsx</field>
+          </shadow>
+        </value>
+      </block>
+      <label text="ブック型変数"></label>
+      <button text="ブック型変数を作成…" callbackKey="createVariableWorkbook"></button>
+      <block type="book_var_set">
+        <value name="OBJECT_BOOK">
+          <shadow type="book_activeworkbook"></shadow>
+        </value>
+      </block>
+      <block type="book_var_get"></block>
+    </category>
+    <category name="シート" colour="#55aa55" toolboxitemid="sheet">
+      <label text="シート用ブロック(ブック指定なし)"></label>
+      <block type="sheet_sheets"></block>
+      <block type="sheet_activesheet"></block>
+      <block type="sheet_sheet"></block>
+      <block type="sheet_sheet_index">
+        <value name="INDEX">
+          <shadow  type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <label text="シート用ブロック(ブック指定あり)"></label>
+      <block type="sheet_book_sheets">
+        <value name="OBJECT_BOOK">
+          <shadow type="book_activeworkbook"></shadow>
+        </value>
+      </block>
+      <block type="sheet_book_activesheet">
+        <value name="OBJECT_BOOK">
+          <shadow type="book_activeworkbook"></shadow>
+        </value>
+      </block>
+      <block type="sheet_book_sheet">
+        <value name="OBJECT_BOOK">
+          <shadow type="book_activeworkbook"></shadow>
+        </value>
+      </block>
+      <block type="sheet_book_sheet_index">
+        <value name="OBJECT_BOOK">
+          <shadow type="book_activeworkbook"></shadow>
+        </value>
+        <value name="INDEX">
+          <shadow  type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <label text="シート型変数"></label>
+      <button text="シート型変数を作成…" callbackKey="createVariableWorksheet"></button>
+      <block type="sheet_var_set">
+        <value name="OBJECT_SHEET">
+          <shadow type="sheet_activesheet"></shadow>
+        </value>
+      </block>
+      <block type="sheet_var_get"></block>
+    </category>
+    <category name="セル" colour="#72b872">
+      <label text="セル用ブロック(シート指定なし)(Cells、Range、Selection)"></label>
+      <block type="cell_cells">
+        <value name="ROW">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="COL">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="cell_range"></block>
+      <block type="cell_range_start_end">
+        <value name="START_RANGE">
+          <shadow  type="text">
+            <field name="TEXT">A1</field>
+          </shadow>
+        </value>
+        <value name="END_RANGE">
+          <shadow type="text">
+            <field name="TEXT">C3</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="cell_selection"></block>
+      <label text="セル用ブロック(シート指定あり)(Cells、Range、Selection)"></label>
+      <block type="cell_sheet_cells">
+        <value name="OBJECT_SHEET">
+          <shadow type="sheet_activesheet"></shadow>
+        </value>
+        <value name="ROW">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="COL">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="cell_sheet_range">
+        <value name="OBJECT_SHEET">
+          <shadow type="sheet_activesheet"></shadow>
+        </value>
+      </block>
+      <block type="cell_sheet_range_start_end">
+        <value name="OBJECT_SHEET">
+          <shadow type="sheet_activesheet"></shadow>
+        </value>
+        <value name="START_RANGE">
+          <shadow type="text">
+            <field name="TEXT">A1</field>
+          </shadow>
+        </value>
+        <value name="END_RANGE">
+          <shadow type="text">
+            <field name="TEXT">C3</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="cell_sheet_selection">
+        <value name="OBJECT_SHEET">
+          <shadow type="sheet_activesheet"></shadow>
+        </value>
+      </block>
+      <label text="行・列用ブロック(シート指定なし)(Rows、Columns)"></label>
+      <block type="cell_rows">
+        <value name="ROW">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="cell_columns">
+        <value name="COL">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="cell_rows_start_end">
+        <value name="START_RANGE">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="END_RANGE">
+          <shadow type="math_number">
+            <field name="NUM">3</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="cell_columns_start_end">
+        <value name="START_RANGE">
+          <shadow type="text">
+            <field name="TEXT">A</field>
+          </shadow>
+        </value>
+        <value name="END_RANGE">
+          <shadow type="text">
+            <field name="TEXT">C</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <sep></sep>
+    <category name="アプリ" colour="#ffaa55" toolboxitemid="excel">
+      <block type="excel_calculation"></block>
+      <block type="excel_screenupdating"></block>
+      <block type="excel_displayalerts"></block>
+      <block type="excel_statusbar_false"></block>
+      <block type="excel_debug_print">
+        <value name="TARGET_ITEM">
+          <block type="text">
+            <field name="TEXT">出力文字列</field>
+          </block>
+        </value>
+      </block>
+      <block type="excel_statusbar">
+        <value name="TARGET_ITEM">
+          <block  type="text">
+            <field name="TEXT">表示文字列</field>
+          </block>
+        </value>
+      </block>
+    </category>
+    <category name="変数" colour="330" custom="VARIABLE"></category>
+</xml>
+<script>
+var workspace = Blockly.inject('blocklyDiv',
+    {toolbox: document.getElementById('toolbox'),
+     zoom:
+         {controls: true,
+          wheel: false,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2,
+          pinch: true},
+          grid:
+         {spacing: 20,
+          length: 3,
+          colour: '#ccc',
+          snap: true},
+     trashcan: true});
+workspace.addChangeListener(function() {
+  const codebox = document.getElementById("codeOutput");
+  const code = Blockly.VBA.workspaceToCode(workspace);
+  codebox.value = code;
+  let allBlocks = workspace.getAllBlocks();
+  console.log(allBlocks);
+  let RootBlock;
+  allBlocks.forEach(element => {
+    RootBlock = element.getRootBlock();
+    if (RootBlock.type == "excel_start") {
+      element.setEnabled(true);
+    }else{
+      element.setEnabled(false);
+    }  
+  });
+});
+workspace.registerButtonCallback('createVariableWorkbook', function(button){
+  Blockly.Variables.createVariableButtonHandler(button.getTargetWorkspace(), null, 'Workbook');
+});
+workspace.registerButtonCallback('createVariableWorksheet', function(button){
+  Blockly.Variables.createVariableButtonHandler(button.getTargetWorkspace(), null, 'Worksheet');
+});
+</script>
+<script>
+  function toXml() {
+    var xml = Blockly.Xml.workspaceToDom(workspace);
+    var xml_text = Blockly.Xml.domToPrettyText(xml);
+    var output = document.getElementById('importExport');
+    output.value = xml_text;
+  }
+  function fromXml() {
+  var input = document.getElementById('importExport');
+  if (!input.value) {
+    return;
+  }
+  var xml = Blockly.Xml.textToDom(input.value);
+  Blockly.Xml.domToWorkspace(xml, workspace);
+  }
+  function codeCopy() {
+    var code = document.getElementById('codeOutput');
+    code.select();
+    document.execCommand("copy");
+  }
+window.onload = setStartBlock();
+</script>
+</body>
+</html>
+
