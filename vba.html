@@ -513,7 +513,6 @@ workspace.addChangeListener(function() {
   const code = Blockly.VBA.workspaceToCode(workspace);
   codebox.value = code;
   let allBlocks = workspace.getAllBlocks();
-  console.log(allBlocks);
   let RootBlock;
   allBlocks.forEach(element => {
     RootBlock = element.getRootBlock();
