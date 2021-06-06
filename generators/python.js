@@ -168,8 +168,10 @@ Blockly.Python.init = function(workspace) {
   // Add user variables, but only ones that are being used.
   var variables = Blockly.Variables.allUsedVarModels(workspace);
   for (var i = 0; i < variables.length; i++) {
-    defvars.push(Blockly.Python.variableDB_.getName(variables[i].getId(),
-        Blockly.VARIABLE_CATEGORY_NAME) + ' = None');
+    if (variables[i].type != "browser" && variables[i].type != "element") {
+      defvars.push(Blockly.Python.variableDB_.getName(variables[i].getId(),
+          Blockly.VARIABLE_CATEGORY_NAME) + ' = None');
+    }
   }
 
   Blockly.Python.definitions_['variables'] = defvars.join('\n');
