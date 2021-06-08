@@ -45,7 +45,7 @@
                 <input type="button" value="ホーム" onclick="location.href='index.html';">
                 <input type="button" value="開く" onclick="document.getElementById('loadButton').click();">
                 <input type="button" value="保存" onclick="document.getElementById('download').click();">
-                <input type="button" value="リセット" onclick="workspace.clear();">
+                <input type="button" value="リセット" onclick="setStartBlock();">
                 <input id="loadButton" type="file" onchange="readXmlToWorkspace(this)" style="display: none;">
                 <a id="download" href="#" download="download.xml" onclick="downloadXml();" style="display: none;">download</a>
               </td>
@@ -419,8 +419,8 @@
     </block>
   </category>
   <sep></sep>
-  <category name="Selenium" colour="#22af39">
-    <category name="ブラウザ" colour="#22af39">
+  <category name="Selenium" colour="210">
+    <category name="ブラウザ" colour="210">
       <block type="browser_get"></block>
       <block type="browser_find_element_by_class_name"></block>
       <block type="browser_find_element_by_id"></block>
