@@ -45,7 +45,7 @@
                 <input type="button" value="ホーム" onclick="location.href='index.html';">
                 <input type="button" value="開く" onclick="document.getElementById('loadButton').click();">
                 <input type="button" value="保存" onclick="document.getElementById('download').click();">
-                <input type="button" value="リセット" onclick="setStartBlock();">
+                <input type="button" value="リセット" onclick="workspace.clear();">
                 <input id="loadButton" type="file" onchange="readXmlToWorkspace(this)" style="display: none;">
                 <a id="download" href="#" download="download.xml" onclick="downloadXml();" style="display: none;">download</a>
               </td>
