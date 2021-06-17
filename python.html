@@ -421,31 +421,38 @@
   <sep></sep>
   <category name="Selenium" colour="180">
     <category name="ブラウザ" colour="180">
-      <block type="browser_get"></block>
-      <block type="browser_find_element_by_class_name"></block>
-      <block type="browser_find_element_by_id"></block>
-      <block type="browser_find_element_by_xpath"></block>
-      <block type="browser_current_url"></block>
-      <block type="browser_title"></block>
-      <block type="browser_page_source"></block>
-      <block type="browser_method"></block>
-      <label text="ブラウザ型変数"></label>
+      <label text="ブラウザ用変数"></label>
       <button text="ブラウザ型変数を作成…" callbackKey="createVariableDriver"></button>
       <block type="browser_var_set"></block>
       <block type="browser_var_get"></block>  
+      <label text="取得用ブロック"></label>
+      <block type="browser_get"></block>
+      <block type="browser_get_find_element_by"></block>
+      <block type="browser_get_find_elements_by"></block>
+      <label text="操作用ブロック"></label>
+      <block type="browser_method"></block>
+      <block type="browser_method_get"></block>
+      <label text="設定用ブロック"></label>
+      <block type="browser_set_window_size"></block>
+      <block type="browser_set_window_position"></block>
+      <block type="browser_set_script_timeout"></block>
+      <block type="browser_set_page_load_timeout"></block>
     </category>
     <category name="要素" colour="90">
-      <block type="element_click"></block>
-      <block type="element_send_keys"></block>
-      <block type="element_text"></block>
-      <block type="element_get_attribute"></block>
-      <block type="element_is_displayed"></block>
-      <block type="element_is_enabled"></block>
-      <block type="element_is_selected"></block>
       <label text="要素型変数"></label>
       <button text="要素型変数を作成…" callbackKey="createVariableDriver"></button>
       <block type="element_var_set"></block>
       <block type="element_var_get"></block>  
+      <label text="取得用ブロック"></label>
+      <block type="element_get_find_element_by"></block>
+      <block type="element_get_find_elements_by"></block>
+      <block type="element_get_text"></block>
+      <block type="element_get_attribute"></block>
+      <label text="操作用ブロック"></label>
+      <block type="element_method_click"></block>
+      <block type="element_method_send_keys"></block>
+      <label text="状態取得ブロック"></label>
+      <block type="element_is"></block>
     </category>
   </category>
   
