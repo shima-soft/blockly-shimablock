@@ -590,6 +590,80 @@ Blockly.defineBlocksWithJsonArray(
   "helpUrl": ""
 },
 {
+  "type": "element_get_arg0",
+  "message0": "%1 の %2 を取得",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "ELEMENT_OBJECT_NAME",
+      "check": "element"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "PROPERTY",
+      "options": [
+        [
+          "テキスト",
+          ".text"
+        ],
+        [
+          "タグ名",
+          ".tag_name"
+        ],
+        [
+          "サイズと場所",
+          ".rect"
+        ],
+        [
+          "サイズ",
+          ".size"
+        ],
+        [
+          "ID",
+          ".id"
+        ],
+        [
+          "場所",
+          ".location"
+        ],
+        [
+          "参照元(WebDriver)",
+          ".parent"
+        ],
+        [
+          "場所までスクロールした表示画面",
+          ".location_once_scrolled_into_view"
+        ],
+        [
+          "スクリーンショットをBase64でエンコードした文字列",
+          ".screenshot_as_base64"
+        ],
+        [
+          "スクリーンショットのバイナリデータ",
+          ".screenshot_as_png"
+        ],
+        [
+          "ARIALavel",
+          ".accessible_name"
+        ],
+        [
+          "ARIArole",
+          ".aria_role"
+        ]
+      ]
+    }
+  ],
+  "output": [
+    "Number",
+    "Boolean",
+    "String",
+    "browser"
+  ],
+  "colour": 90,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
   "type": "element_get",
   "message0": "%1 の %2 %3 の値を取得",
   "args0": [
@@ -631,6 +705,7 @@ Blockly.defineBlocksWithJsonArray(
   "tooltip": "",
   "helpUrl": ""
 },
+
 {
   "type": "element_method",
   "message0": "%1 を %2",
