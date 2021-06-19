@@ -611,8 +611,12 @@ Blockly.defineBlocksWithJsonArray(
           ".get_dom_attribute"
         ],
         [
-          "プロパティ:",
+          "HTMLプロパティ:",
           ".get_property"
+        ],
+        [
+          "CSSプロパティ:",
+          ".value_of_css_property"
         ]
       ]
     },
