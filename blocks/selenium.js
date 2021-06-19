@@ -610,13 +610,27 @@ Blockly.defineBlocksWithJsonArray(
   "helpUrl": ""
 },
 {
-  "type": "element_method_click",
-  "message0": "%1 をクリック",
+  "type": "element_method",
+  "message0": "%1 を %2",
   "args0": [
     {
       "type": "input_value",
       "name": "ELEMENT_OBJECT_NAME",
       "check": "element"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "METHOD",
+      "options": [
+        [
+          "クリック",
+          ".click()"
+        ],
+        [
+          "フォーム送信",
+          ".submit()"
+        ]
+      ]
     }
   ],
   "previousStatement": null,
