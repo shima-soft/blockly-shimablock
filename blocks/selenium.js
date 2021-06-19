@@ -647,6 +647,10 @@ Blockly.defineBlocksWithJsonArray(
         [
           "フォーム送信",
           ".submit()"
+        ],
+        [
+          "クリア",
+          ".clear()"
         ]
       ]
     }
