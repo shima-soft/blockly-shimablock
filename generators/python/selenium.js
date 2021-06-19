@@ -114,11 +114,12 @@ Blockly.Python['element_get_text'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
-Blockly.Python['element_get_attribute'] = function(block) {
+Blockly.Python['element_get'] = function(block) {
   var value_element_object_name = Blockly.Python.valueToCode(block, 'ELEMENT_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_method = block.getFieldValue('METHOD');
   var value_attribute_value = Blockly.Python.valueToCode(block, 'ATTRIBUTE_VALUE', Blockly.Python.ORDER_ATOMIC);
-  var code = value_element_object_name + '.get_attribute(' + value_attribute_value + ')';
-  return [code, Blockly.Python.ORDER_ATOMIC];
+  var code = value_element_object_name + dropdown_method + '(' + value_attribute_value + ')';
+  return [code, Blockly.Python.ORDER_NONE];
 };
 
 Blockly.Python['element_method'] = function(block) {

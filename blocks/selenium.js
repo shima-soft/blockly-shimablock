@@ -590,13 +590,31 @@ Blockly.defineBlocksWithJsonArray(
   "helpUrl": ""
 },
 {
-  "type": "element_get_attribute",
-  "message0": "%1 の属性: %2 の値を取得",
+  "type": "element_get",
+  "message0": "%1 の %2 %3 の値を取得",
   "args0": [
     {
       "type": "input_value",
       "name": "ELEMENT_OBJECT_NAME",
       "check": "element"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "METHOD",
+      "options": [
+        [
+          "属性:",
+          ".get_attribute"
+        ],
+        [
+          "HTML属性:",
+          ".get_dom_attribute"
+        ],
+        [
+          "プロパティ:",
+          ".get_property"
+        ]
+      ]
     },
     {
       "type": "input_value",
