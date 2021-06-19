@@ -136,6 +136,13 @@ Blockly.Python['element_method_send_keys'] = function(block) {
   return code;
 };
 
+Blockly.Python['element_method_screenshot'] = function(block) {
+  var value_element_object_name = Blockly.Python.valueToCode(block, 'ELEMENT_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var value_filename = Blockly.Python.valueToCode(block, 'FILENAME', Blockly.Python.ORDER_ATOMIC);
+  var code = value_element_object_name + '.screenshot(' + value_filename + ')\n';
+  return code;
+};
+
 Blockly.Python['element_is'] = function(block) {
   var value_element_object_name = Blockly.Python.valueToCode(block, 'ELEMENT_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
   var dropdown_name = block.getFieldValue('NAME');

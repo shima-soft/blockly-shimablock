@@ -687,6 +687,28 @@ Blockly.defineBlocksWithJsonArray(
   "helpUrl": ""
 },
 {
+  "type": "element_method_screenshot",
+  "message0": "%1 のスクリーンショットを %2 にPNG画像ファイルで保存",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "ELEMENT_OBJECT_NAME",
+      "check": "element"
+    },
+    {
+      "type": "input_value",
+      "name": "FILENAME",
+      "check": "String"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 90,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
   "type": "element_is",
   "message0": "%1 の %2",
   "args0": [
