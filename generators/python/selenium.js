@@ -124,7 +124,7 @@ Blockly.Python['element_get_attribute'] = function(block) {
 Blockly.Python['element_method'] = function(block) {
   var value_element_object_name = Blockly.Python.valueToCode(block, 'ELEMENT_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
   var dropdown_method = block.getFieldValue('METHOD');
-  var code = value_element_object_name + dropdown_name + '\n';
+  var code = value_element_object_name + dropdown_method + '\n';
   return code;
 };
 
