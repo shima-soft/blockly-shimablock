@@ -815,5 +815,32 @@ Blockly.defineBlocksWithJsonArray(
   "colour": 90,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "browser_method_add_cookie",
+  "message0": "%1 に名前: %2 値: %3 のクッキーを追加",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "BROWSER_OBJECT_NAME",
+      "check": "browser"
+    },
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "String"
+    },
+    {
+      "type": "input_value",
+      "name": "VALUE",
+      "check": "String"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 180,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 );
