@@ -164,3 +164,16 @@ Blockly.Python['browser_method_add_cookie'] = function(block) {
   var code = value_browser_object_name + '.add_cookie({\'name\': ' + value_name + ', \'value\': ' + value_value + '})\n';
   return code;
 };
+
+Blockly.Python['browser_get_cookies'] = function(block) {
+  var value_element_object_name = Blockly.Python.valueToCode(block, 'ELEMENT_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var code = value_element_object_name + '.get_cookies()';
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
+Blockly.Python['browser_get_cookie'] = function(block) {
+  var value_element_object_name = Blockly.Python.valueToCode(block, 'ELEMENT_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
+  var code = value_element_object_name + '.get_cookie(' + value_name + ')';
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
