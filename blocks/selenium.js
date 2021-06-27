@@ -877,5 +877,44 @@ Blockly.defineBlocksWithJsonArray(
   "colour": 180,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "browser_method_delete_all_cookies",
+  "message0": "%1 の クッキーを全て削除",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "BROWSER_OBJECT_NAME",
+      "check": "browser"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 180,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "browser_method_delete_cookie",
+  "message0": "%1 から 名前: %2 の クッキーを削除",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "BROWSER_OBJECT_NAME",
+      "check": "browser"
+    },
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "String"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 180,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 );
