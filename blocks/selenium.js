@@ -132,11 +132,26 @@ Blockly.defineBlocksWithJsonArray(
         [
           "ページソースを取得",
           ".page_source"
+        ],
+        [
+          "ウィンドウ位置を取得",
+          ".get_window_position()"
+        ],
+        [
+          "ウィンドウサイズを取得",
+          ".get_window_size()"
+        ],
+        [
+          "ウィンドウ位置とサイズを取得",
+          ".get_window_rect()"
         ]
       ]
     }
   ],
-  "output": "String",
+  "output": [
+    "String",
+    "Array"
+  ],
   "colour": 180,
   "tooltip": "",
   "helpUrl": ""
