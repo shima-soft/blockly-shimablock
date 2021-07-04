@@ -190,3 +190,10 @@ Blockly.Python['browser_method_delete_cookie'] = function(block) {
   var code = value_browser_object_name + '.delete_cookie(' + value_name + ')\n';
   return code;
 };
+
+Blockly.Python['browser_method_get_screenshot_as_file'] = function(block) {
+  var value_browser_object_name = Blockly.Python.valueToCode(block, 'BROWSER_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var value_filename = Blockly.Python.valueToCode(block, 'FILENAME', Blockly.Python.ORDER_ATOMIC);
+  var code = value_browser_object_name + '.get_screenshot_as_file(' + value_filename + ')';
+  return code;
+};

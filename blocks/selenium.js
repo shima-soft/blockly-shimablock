@@ -931,5 +931,30 @@ Blockly.defineBlocksWithJsonArray(
   "colour": 180,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "browser_method_get_screenshot_as_file",
+  "message0": "%1 からスクリーンショットを取得し、 %2 ファイル名: %3 に保存する",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "BROWSER_OBJECT_NAME",
+      "check": "browser"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "FILENAME",
+      "check": "String"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 180,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 );
