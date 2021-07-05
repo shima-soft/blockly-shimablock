@@ -1,26 +1,26 @@
 Blockly.Python['browser_var_set'] = function(block) {
   Blockly.Python.definitions_['import_webdriver'] = 'from selenium import webdriver';
-  var variable_browser_object_name = Blockly.Python.variableDB_.getName(block.getFieldValue('BROWSER_OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
+  var variable_browser_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('BROWSER_OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
   var dropdown_browser_name = block.getFieldValue('BROWSER_NAME');
   var code = variable_browser_object_name + ' = webdriver.' + dropdown_browser_name + '()\n';
   return code;
 };
 
 Blockly.Python['browser_var_get'] = function(block) {
-  var variable_browser_object_name = Blockly.Python.variableDB_.getName(block.getFieldValue('BROWSER_OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
+  var variable_browser_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('BROWSER_OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
   var code = variable_browser_object_name;
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
 Blockly.Python['element_var_set'] = function(block) {
-  var variable_element_object_name = Blockly.Python.variableDB_.getName(block.getFieldValue('ELEMENT_OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
+  var variable_element_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('ELEMENT_OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   var code = variable_element_object_name + ' = ' + value_name + '\n';
   return code;
 };
 
 Blockly.Python['element_var_get'] = function(block) {
-  var variable_element_object_name = Blockly.Python.variableDB_.getName(block.getFieldValue('ELEMENT_OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
+  var variable_element_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('ELEMENT_OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
   var code = variable_element_object_name;
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
