@@ -934,7 +934,7 @@ Blockly.defineBlocksWithJsonArray(
 },
 {
   "type": "browser_method_get_screenshot_as_file",
-  "message0": "%1 からスクリーンショットを取得し、 %2 ファイル名: %3 に保存する",
+  "message0": "%1 のスクリーンショットをファイル名: %2 %3 で取得",
   "args0": [
     {
       "type": "input_value",
