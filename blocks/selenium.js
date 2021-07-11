@@ -362,7 +362,7 @@ Blockly.defineBlocksWithJsonArray(
 },
 {
   "type": "browser_set_window_size",
-  "message0": "ウィンドウサイズを設定する %1 ブラウザ型変数: %2 幅: %3 高さ: %4",
+  "message0": "ウィンドウサイズを設定 %1 ブラウザ型変数: %2 幅: %3 高さ: %4",
   "args0": [
     {
       "type": "input_dummy"
@@ -395,7 +395,7 @@ Blockly.defineBlocksWithJsonArray(
 },
 {
   "type": "browser_set_window_position",
-  "message0": "ウィンドウ位置を設定する %1 ブラウザ型変数: %2 縦位置: %3 横位置: %4",
+  "message0": "ウィンドウ位置を設定 %1 ブラウザ型変数: %2 縦位置: %3 横位置: %4",
   "args0": [
     {
       "type": "input_dummy"
@@ -428,7 +428,7 @@ Blockly.defineBlocksWithJsonArray(
 },
 {
   "type": "browser_set_script_timeout",
-  "message0": "%1 の スクリプト待機時間を %2 秒に設定する",
+  "message0": "%1 の スクリプト待機時間を %2 秒に設定",
   "args0": [
     {
       "type": "input_value",
@@ -449,7 +449,7 @@ Blockly.defineBlocksWithJsonArray(
 },
 {
   "type": "browser_set_page_load_timeout",
-  "message0": "%1 の ページ読み込み完了の待機時間を %2 秒に設定する",
+  "message0": "%1 の ページ読み込み完了の待機時間を %2 秒に設定",
   "args0": [
     {
       "type": "input_value",
