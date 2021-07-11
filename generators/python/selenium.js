@@ -198,8 +198,9 @@ Blockly.Python['browser_method_get_screenshot_as_file'] = function(block) {
   return code;
 };
 
-Blockly.Python['browser_get_screenshot_as_png'] = function(block) {
+Blockly.Python['browser_get_screenshot_as_xxx'] = function(block) {
   var value_element_object_name = Blockly.Python.valueToCode(block, 'ELEMENT_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
-  var code = value_element_object_name + '.get_screenshot_as_png()';
+  var dropdown_method = block.getFieldValue('METHOD');
+  var code = value_element_object_name + dropdown_method;
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
