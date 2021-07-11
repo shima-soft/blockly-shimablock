@@ -204,3 +204,10 @@ Blockly.Python['browser_get_screenshot_as_xxx'] = function(block) {
   var code = value_element_object_name + dropdown_method;
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
+
+Blockly.Python['browser_method_execute_script'] = function(block) {
+  var value_browser_object_name = Blockly.Python.valueToCode(block, 'BROWSER_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var value_javascript = Blockly.Python.valueToCode(block, 'JAVASCRIPT', Blockly.Python.ORDER_ATOMIC);
+  var code = value_browser_object_name + '.execute_script(' + value_javascript + ')\n';
+  return code;
+};

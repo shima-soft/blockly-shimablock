@@ -989,5 +989,30 @@ Blockly.defineBlocksWithJsonArray(
   "colour": 180,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "browser_method_execute_script",
+  "message0": "%1 でJavaScript: %2 %3 を実行",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "BROWSER_OBJECT_NAME",
+      "check": "browser"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "JAVASCRIPT",
+      "check": "String"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 180,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 );
