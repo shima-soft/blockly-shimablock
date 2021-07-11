@@ -211,3 +211,10 @@ Blockly.Python['browser_method_execute_script'] = function(block) {
   var code = value_browser_object_name + '.execute_script(' + value_javascript + ')\n';
   return code;
 };
+
+Blockly.Python['browser_set_implicitly_wait'] = function(block) {
+  var value_browser_object_name = Blockly.Python.valueToCode(block, 'BROWSER_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var value_sec = Blockly.Python.valueToCode(block, 'SEC', Blockly.Python.ORDER_ATOMIC);
+  var code = value_browser_object_name + '.implicitly_wait(' + value_sec + ')\n';
+  return code;
+};
