@@ -1039,5 +1039,66 @@ Blockly.defineBlocksWithJsonArray(
   "colour": 180,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "browser_set_window_rect",
+  "message0": "ウィンドウの位置とサイズを設定 %1 ブラウザ型変数: %2 縦位置: %3 横位置: %4 幅: %5 高さ: %6",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "BROWSER_OBJECT_NAME",
+      "check": "browser",
+      "align": "RIGHT"
+    },
+    {
+      "type": "input_value",
+      "name": "Y",
+      "check": "Number",
+      "align": "RIGHT"
+    },
+    {
+      "type": "input_value",
+      "name": "X",
+      "check": "Number",
+      "align": "RIGHT"
+    },
+    {
+      "type": "input_value",
+      "name": "WIDTH",
+      "check": "Number",
+      "align": "RIGHT"
+    },
+    {
+      "type": "input_value",
+      "name": "HEIGHT",
+      "check": "Number",
+      "align": "RIGHT"
+    }
+  ],
+  "inputsInline": false,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 180,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "browser_get_current_window_handle",
+  "message0": "%1 の現在のウインドウハンドルを取得",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "ELEMENT_OBJECT_NAME",
+      "check": "browser"
+    }
+  ],
+  "inputsInline": true,
+  "output": "String",
+  "colour": 180,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 );

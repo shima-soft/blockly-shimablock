@@ -207,8 +207,8 @@ Blockly.Python['browser_get_screenshot_as_xxx'] = function(block) {
 
 Blockly.Python['browser_method_execute_script'] = function(block) {
   var value_browser_object_name = Blockly.Python.valueToCode(block, 'BROWSER_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
-  var value_javascript = Blockly.Python.valueToCode(block, 'JAVASCRIPT', Blockly.Python.ORDER_ATOMIC);
-  var code = value_browser_object_name + '.execute_script(' + value_javascript + ')\n';
+  var value_Python = Blockly.Python.valueToCode(block, 'Python', Blockly.Python.ORDER_ATOMIC);
+  var code = value_browser_object_name + '.execute_script(' + value_Python + ')\n';
   return code;
 };
 
@@ -217,4 +217,27 @@ Blockly.Python['browser_set_implicitly_wait'] = function(block) {
   var value_sec = Blockly.Python.valueToCode(block, 'SEC', Blockly.Python.ORDER_ATOMIC);
   var code = value_browser_object_name + '.implicitly_wait(' + value_sec + ')\n';
   return code;
+};
+
+Blockly.Python['browser_set_window_rect'] = function(block) {
+  var value_browser_object_name = Blockly.Python.valueToCode(block, 'BROWSER_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var value_y = Blockly.Python.valueToCode(block, 'Y', Blockly.Python.ORDER_ATOMIC);
+  var value_x = Blockly.Python.valueToCode(block, 'X', Blockly.Python.ORDER_ATOMIC);
+  var value_width = Blockly.Python.valueToCode(block, 'WIDTH', Blockly.Python.ORDER_ATOMIC);
+  var value_height = Blockly.Python.valueToCode(block, 'HEIGHT', Blockly.Python.ORDER_ATOMIC);
+  var arg_list = []
+  if (value_y != "") {
+    arg_list.push("y=" + value_y)
+  }
+  if (value_x != "") {
+    arg_list.push("x=" + value_x)
+  }
+  var code = value_browser_object_name + '.set_window_rect(' + arg_list.join(",") + ');\n';
+  return code;
+};
+
+Blockly.Python['browser_get_current_window_handle'] = function(block) {
+  var value_element_object_name = Blockly.Python.valueToCode(block, 'ELEMENT_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var code = value_element_object_name + '.current_window_handle';
+  return [code, Blockly.Python.ORDER_ATOMIC];
 };
