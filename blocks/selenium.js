@@ -315,16 +315,12 @@ Blockly.defineBlocksWithJsonArray(
           ".fullscreen_window()"
         ],
         [
+          "セッション開始",
+          ".start_session()"
+        ],
+        [
           "閉じる",
           ".close()"
-        ],
-        [
-          "セッション開始",
-          ".start_client()"
-        ],
-        [
-          "セッション終了",
-          ".stop_client( )"
         ],
         [
           "終了",
