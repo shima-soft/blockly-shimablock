@@ -148,6 +148,10 @@ Blockly.defineBlocksWithJsonArray(
         [
           "ブラウザ名を取得",
           ".name"
+        ],
+        [
+          "すべてのウィンドウハンドルを取得",
+          ".window_handles"
         ]
       ]
     }
