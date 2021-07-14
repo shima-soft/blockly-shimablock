@@ -144,6 +144,10 @@ Blockly.defineBlocksWithJsonArray(
         [
           "ウィンドウ位置とサイズを取得",
           ".get_window_rect()"
+        ],
+        [
+          "ブラウザ名を取得",
+          ".name"
         ]
       ]
     }
