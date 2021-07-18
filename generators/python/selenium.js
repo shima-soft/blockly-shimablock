@@ -241,3 +241,9 @@ Blockly.Python['browser_get_current_window_handle'] = function(block) {
   var code = value_element_object_name + '.current_window_handle';
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
+
+Blockly.Python['browser_get_switch_to_active_element'] = function(block) {
+  var value_element_object_name = Blockly.Python.valueToCode(block, 'ELEMENT_OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var code = value_element_object_name + '.switch_to.active_element';
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};

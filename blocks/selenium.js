@@ -1104,5 +1104,21 @@ Blockly.defineBlocksWithJsonArray(
   "colour": 180,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "browser_get_switch_to_active_element",
+  "message0": "%1 のアクティブな要素を取得",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "ELEMENT_OBJECT_NAME",
+      "check": "browser"
+    }
+  ],
+  "inputsInline": true,
+  "output": "element",
+  "colour": 180,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 );
