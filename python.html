@@ -17,7 +17,8 @@
 <script src="blockly_compressed.js"></script>
 <script src="blocks_compressed.js"></script>
 <script src="msg/js/ja.js"></script>
-<script src="blocks/selenium.js"></script>
+<script src="blocks/selenium_webdriver.js"></script>
+<script src="blocks/selenium_webelement.js"></script>
 <script src="generators/python.js"></script>
 <script src="generators/python/colour.js"></script>
 <script src="generators/python/lists.js"></script>
@@ -25,7 +26,8 @@
 <script src="generators/python/loops.js"></script>
 <script src="generators/python/math.js"></script>
 <script src="generators/python/procedures.js"></script>
-<script src="generators/python/selenium.js"></script>
+<script src="generators/python/selenium_webdriver.js"></script>
+<script src="generators/python/selenium_webelement.js"></script>
 <script src="generators/python/text.js"></script>
 <script src="generators/python/variables.js"></script>
 <script src="generators/python/variables_dynamic.js"></script>
@@ -420,43 +422,40 @@
   </category>
   <sep></sep>
   <category name="Selenium" colour="180">
-    <category name="ブラウザ" colour="180">
-      <label text="ブラウザ変数"></label>
-      <button text="ブラウザ変数を作成…" callbackKey="createVariableDriver"></button>
-      <block type="browser_var_set"></block>
-      <block type="browser_var_get"></block>  
-      <label text="操作ブロック"></label>
-      <block type="browser_method"></block>
-      <block type="browser_method_get"></block>
-      <block type="browser_method_execute_script"></block>
+    <category name="Webdriver" colour="180">
+      <label text="Webdriver"></label>
+      <button text="Webdriverオブジェクトを作成…" callbackKey="createVariableDriver"></button>
+      <block type="driver_var_set"></block>
+      <label text="ブラウザ操作ブロック"></label>
+      <block type="driver_method_get"></block>
+      <block type="driver_method"></block>
+      <block type="driver_method_get_screenshot_as_file"></block>
+      <block type="driver_method_execute_script"></block>
+      <block type="driver_method_switch_to_frame_window"></block>
       <label text="取得ブロック"></label>
-      <block type="browser_get"></block>
-      <block type="browser_get_find_element_by"></block>
-      <block type="browser_get_find_elements_by"></block>
-      <block type="browser_get_switch_to_active_element"></block>
-      <block type="browser_method_get_screenshot_as_file"></block>
-      <block type="browser_get_screenshot_as_xxx"></block>
-      <block type="browser_get_current_window_handle"></block>
+      <block type="driver_get"></block>
+      <block type="driver_get_find_element_by"></block>
+      <block type="driver_get_find_elements_by"></block>
+      <block type="driver_get_screenshot_as_xxx"></block>
+      <block type="driver_get_switch_to_active_element"></block>
+      <block type="driver_get_switch_to_alert"></block>
       <label text="設定ブロック"></label>
-      <block type="browser_set_window_size"></block>
-      <block type="browser_set_window_position"></block>
-      <block type="browser_set_window_rect"></block>
-      <block type="browser_set_script_timeout"></block>
-      <block type="browser_set_page_load_timeout"></block>
-      <block type="browser_set_implicitly_wait"></block>
+      <block type="driver_set_window_size"></block>
+      <block type="driver_set_window_position"></block>
+      <block type="driver_set_window_rect"></block>
+      <block type="driver_set_implicitly_wait"></block>
+      <block type="driver_set_page_load_timeout"></block>
+      <block type="driver_set_script_timeout"></block>
+      <label text="クッキー操作・取得ブロック"></label>
+      <block type="driver_method_add_cookie"></block>
+      <block type="driver_method_delete_cookie"></block>
+      <block type="driver_method_delete_all_cookies"></block>
+      <block type="driver_get_cookie"></block>
+      <block type="driver_get_cookies"></block>
     </category>
-    <category name="クッキー" colour="180">
-      <label text="操作ブロック"></label>
-      <block type="browser_method_add_cookie"></block>
-      <block type="browser_method_delete_all_cookies"></block>
-      <block type="browser_method_delete_cookie"></block>
-      <label text="取得ブロック"></label>
-      <block type="browser_get_cookies"></block>
-      <block type="browser_get_cookie"></block>
-    </category>
-    <category name="要素" colour="90">
-      <label text="要素変数"></label>
-      <button text="要素変数を作成…" callbackKey="createVariableDriver"></button>
+    <category name="Webelement" colour="90">
+      <label text="Webelementオブジェクト"></label>
+      <button text="Webelementオブジェクトを作成…" callbackKey="createVariableWebelement"></button>
       <block type="element_var_set"></block>
       <block type="element_var_get"></block>  
       <label text="操作ブロック"></label>
@@ -466,7 +465,6 @@
       <label text="取得ブロック"></label>
       <block type="element_get_find_element_by"></block>
       <block type="element_get_find_elements_by"></block>
-      <block type="element_get_text"></block>
       <block type="element_get_arg0"></block>
       <block type="element_get"></block>
       <label text="状態取得ブロック"></label>
@@ -503,7 +501,7 @@ workspace.addChangeListener(function() {
 workspace.registerButtonCallback('createVariableDriver', function(button){
   Blockly.Variables.createVariableButtonHandler(button.getTargetWorkspace(), null, 'driver');
 });
-workspace.registerButtonCallback('createVariableWorksheet', function(button){
+workspace.registerButtonCallback('createVariableWebelement', function(button){
   Blockly.Variables.createVariableButtonHandler(button.getTargetWorkspace(), null, 'element');
 });
 </script>
