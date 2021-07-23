@@ -19,6 +19,7 @@
 <script src="msg/js/ja.js"></script>
 <script src="blocks/selenium_webdriver.js"></script>
 <script src="blocks/selenium_webelement.js"></script>
+<script src="blocks/time.js"></script>
 <script src="generators/python.js"></script>
 <script src="generators/python/colour.js"></script>
 <script src="generators/python/lists.js"></script>
@@ -26,11 +27,12 @@
 <script src="generators/python/loops.js"></script>
 <script src="generators/python/math.js"></script>
 <script src="generators/python/procedures.js"></script>
-<script src="generators/python/selenium_webdriver.js"></script>
-<script src="generators/python/selenium_webelement.js"></script>
 <script src="generators/python/text.js"></script>
 <script src="generators/python/variables.js"></script>
 <script src="generators/python/variables_dynamic.js"></script>
+<script src="generators/python/selenium_webdriver.js"></script>
+<script src="generators/python/selenium_webelement.js"></script>
+<script src="generators/python/time.js"></script>
 <script src="main.js"></script>
 </head>
 <body>
@@ -471,7 +473,10 @@
       <block type="element_is"></block>
     </category>
   </category>
-  
+  <category name="Time" colour="345">
+    <block type="time_method_sleep"></block>
+  </category>
+
   <sep></sep>
   <category name="変数" colour="330" custom="VARIABLE"></category>
   <category name="関数" colour="#995ba5" custom="PROCEDURE"></category>
