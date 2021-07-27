@@ -145,7 +145,7 @@ Blockly.Python['driver_set_window_rect'] = function(block) {
   if (value_height != "") {
     arg_list.push("height=" + value_height)
   }
-  var code = variable_object_name + '.set_window_rect(' + arg_list.join(",") + ');\n';
+  var code = variable_object_name + '.set_window_rect(' + arg_list.join(",") + ')\n';
   return code;
 };
 
