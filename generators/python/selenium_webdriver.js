@@ -106,7 +106,7 @@ Blockly.Python['driver_method_get'] = function(block) {
 Blockly.Python['driver_method_get_screenshot_as_file'] = function(block) {
   var variable_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
   var value_filename = Blockly.Python.valueToCode(block, 'FILENAME', Blockly.Python.ORDER_ATOMIC);
-  var code = variable_object_name + '.get_screenshot_as_file(' + value_filename + ')';
+  var code = variable_object_name + '.get_screenshot_as_file(' + value_filename + ')\n';
   return code;
 };
 
