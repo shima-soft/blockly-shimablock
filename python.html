@@ -17,6 +17,7 @@
 <script src="blockly_compressed.js"></script>
 <script src="blocks_compressed.js"></script>
 <script src="msg/js/ja.js"></script>
+<script src="blocks/pickle.js"></script>
 <script src="blocks/selenium_webdriver.js"></script>
 <script src="blocks/selenium_webelement.js"></script>
 <script src="blocks/time.js"></script>
@@ -30,6 +31,7 @@
 <script src="generators/python/text.js"></script>
 <script src="generators/python/variables.js"></script>
 <script src="generators/python/variables_dynamic.js"></script>
+<script src="generators/python/pickle.js"></script>
 <script src="generators/python/selenium_webdriver.js"></script>
 <script src="generators/python/selenium_webelement.js"></script>
 <script src="generators/python/time.js"></script>
@@ -481,10 +483,14 @@
       <block type="element_is"></block>
     </category>
   </category>
-  <category name="Time" colour="345">
+  <category name="time" colour="345">
     <block type="time_method_sleep"></block>
   </category>
-
+  <category name="pickle" colour="45">
+    <block type="pickle_dump"></block>
+    <block type="pickle_load"></block>
+  </category>
+  
   <sep></sep>
   <category name="変数" colour="330" custom="VARIABLE"></category>
   <category name="関数" colour="#995ba5" custom="PROCEDURE"></category>
