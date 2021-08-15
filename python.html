@@ -436,7 +436,11 @@
       <block type="driver_method_switch_to_frame_window"></block>
       <label text="取得ブロック"></label>
       <block type="driver_get"></block>
-      <block type="driver_get_find_element_by"></block>
+      <block type="element_var_set">
+        <value name="NAME">
+          <block type="driver_get_find_element_by"></block>
+        </value>
+      </block>
       <block type="driver_get_find_elements_by"></block>
       <block type="driver_get_screenshot_as_xxx"></block>
       <block type="driver_get_switch_to_active_element"></block>
@@ -465,7 +469,11 @@
       <block type="element_method_send_keys"></block>
       <block type="element_method_screenshot"></block>
       <label text="取得ブロック"></label>
-      <block type="element_get_find_element_by"></block>
+      <block type="element_var_set">
+        <value name="NAME">
+          <block type="element_get_find_element_by"></block>
+        </value>
+      </block>
       <block type="element_get_find_elements_by"></block>
       <block type="element_get_arg0"></block>
       <block type="element_get"></block>
