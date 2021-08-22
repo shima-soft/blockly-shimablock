@@ -747,7 +747,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "driver"
+        "variable": "driver",
+        "variableTypes": ["driver"],
+        "defaultType": "driver"
       },
       {
         "type": "input_dummy"
@@ -780,6 +782,42 @@ Blockly.defineBlocksWithJsonArray(
     "inputsInline": false,
     "previousStatement": null,
     "nextStatement": null,
+    "colour": 180,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "driver_get_session_id",
+    "message0": "%1 のセッションIDを取得",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "OBJECT_NAME",
+        "variable": "driver",
+        "variableTypes": ["driver"],
+        "defaultType": "driver"
+      }
+    ],
+    "inputsInline": true,
+    "output": "String",
+    "colour": 180,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "driver_get_command_executor_url",
+    "message0": "%1 の接続URLを取得",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "OBJECT_NAME",
+        "variable": "driver",
+        "variableTypes": ["driver"],
+        "defaultType": "driver"
+      }
+    ],
+    "inputsInline": true,
+    "output": "String",
     "colour": 180,
     "tooltip": "",
     "helpUrl": ""

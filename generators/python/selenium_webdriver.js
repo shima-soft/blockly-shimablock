@@ -177,3 +177,15 @@ Blockly.Python['driver_method_switch_to_frame_window'] = function(block) {
   var code = variable_object_name + '.switch_to.' + dropdown_method + '(' + value_name + ')\n';
   return code;
 };
+
+Blockly.Python['driver_get_session_id'] = function(block) {
+  var variable_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
+  var code = variable_object_name + '.session_id';
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
+Blockly.Python['driver_get_command_executor_url'] = function(block) {
+  var variable_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
+  var code = variable_object_name + '.command_executor._url';
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
