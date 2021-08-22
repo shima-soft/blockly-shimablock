@@ -1,47 +1,17 @@
 Blockly.defineBlocksWithJsonArray(
+
   [{
     "type": "pickle_dump",
     "lastDummyAlign0": "RIGHT",
-    "message0": "変数をpickle化し、ファイル保存 %1 ファイル名: %2 %3 変数: %4 %5 モード: %6 %7 プロトコル： %8",
+    "message0": "pickleファイルに %1 を保存 %2 プロトコル： %3",
     "args0": [
-      {
-        "type": "input_dummy"
-      },
-      {
-        "type": "field_input",
-        "name": "FILE_NAME",
-        "text": "data.pickle"
-      },
-      {
-        "type": "input_dummy",
-        "align": "RIGHT"
-      },
       {
         "type": "field_variable",
         "name": "TARGET_NAME",
         "variable": "data"
       },
       {
-        "type": "input_dummy",
-        "align": "RIGHT"
-      },
-      {
-        "type": "field_dropdown",
-        "name": "MODE",
-        "options": [
-          [
-            "バイナリ",
-            "'wb'"
-          ],
-          [
-            "テキスト",
-            "'wt'"
-          ]
-        ]
-      },
-      {
-        "type": "input_dummy",
-        "align": "RIGHT"
+        "type": "input_dummy"
       },
       {
         "type": "field_dropdown",
@@ -83,16 +53,32 @@ Blockly.defineBlocksWithJsonArray(
       }
     ],
     "inputsInline": false,
-    "previousStatement": null,
-    "nextStatement": null,
+    "previousStatement": "pickle_dump",
+    "nextStatement": "pickle_dump",
     "colour": 45,
     "tooltip": "",
     "helpUrl": ""
   },
   {
     "type": "pickle_load",
+    "message0": "pickleファイルから %1 に読み込む",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "TARGET_NAME",
+        "variable": "data"
+      }
+    ],
+    "previousStatement": "pickle_load",
+    "nextStatement": "pickle_load",
+    "colour": 45,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "pickle_open_dump",
     "lastDummyAlign0": "RIGHT",
-    "message0": "pickleファイルを読み込む %1 ファイル名: %2 %3 変数: %4 %5 モード: %6",
+    "message0": "pickleファイルを開く(オブジェクト保存用) %1 ファイル名: %2 %3 モード: %4",
     "args0": [
       {
         "type": "input_dummy"
@@ -107,9 +93,39 @@ Blockly.defineBlocksWithJsonArray(
         "align": "RIGHT"
       },
       {
-        "type": "field_variable",
-        "name": "TARGET_NAME",
-        "variable": "data"
+        "type": "field_dropdown",
+        "name": "MODE",
+        "options": [
+          [
+            "バイナリ",
+            "'wb'"
+          ],
+          [
+            "テキスト",
+            "'wt'"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": false,
+    "previousStatement": null,
+    "nextStatement": "pickle_dump",
+    "colour": 45,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "pickle_open_load",
+    "lastDummyAlign0": "RIGHT",
+    "message0": "pickleファイルを開く(オブジェクト読み込み用) %1 ファイル名: %2 %3 モード: %4",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_input",
+        "name": "FILE_NAME",
+        "text": "data.pickle"
       },
       {
         "type": "input_dummy",
@@ -132,7 +148,7 @@ Blockly.defineBlocksWithJsonArray(
     ],
     "inputsInline": false,
     "previousStatement": null,
-    "nextStatement": null,
+    "nextStatement": "pickle_load",
     "colour": 45,
     "tooltip": "",
     "helpUrl": ""
