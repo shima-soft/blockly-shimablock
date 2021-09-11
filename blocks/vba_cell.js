@@ -40,8 +40,12 @@ Blockly.defineBlocksWithJsonArray(
       }
     ],
     "inputsInline": true,
-    "output": "range",
-    "colour": "#72b872",
+    "output": [
+      "range",
+      "Number",
+      "String"
+    ],
+    "colour": 120,
     "tooltip": "",
     "helpUrl": ""
   },
@@ -162,8 +166,12 @@ Blockly.defineBlocksWithJsonArray(
       }
     ],
     "inputsInline": true,
-    "output": "range",
-    "colour": "#72b872",
+    "output": [
+      "range",
+      "Number",
+      "String"
+    ],
+    "colour": 120,
     "tooltip": "",
     "helpUrl": ""
   },
