@@ -821,5 +821,70 @@ Blockly.defineBlocksWithJsonArray(
     "colour": 180,
     "tooltip": "",
     "helpUrl": ""
+  },
+  {
+    "type": "driver_var_set_remote",
+    "lastDummyAlign0": "RIGHT",
+    "message0": "%1 にリモートのChromeドライバをセット %2 接続先URL(command_executor)： %3 ブラウザ表示： %4",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "OBJECT_NAME",
+        "variable": "driver",
+        "variableTypes": ["driver"],
+        "defaultType": "driver"    
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_value",
+        "name": "COMMAND_EXECUTOR",
+        "check": "String",
+        "align": "RIGHT"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "OPTION_HEADLESS",
+        "options": [
+          [
+            "指定なし",
+            ""
+          ],
+          [
+            "表示しない",
+            "--headless"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": false,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 180,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "driver_set_session_id",
+    "message0": "%1 のセッションIDを %2 に設定",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "OBJECT_NAME",
+        "variable": "driver",
+        "variableTypes": ["driver"],
+        "defaultType": "driver"    
+      },
+      {
+        "type": "input_value",
+        "name": "SESSHION_ID"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 180,
+    "tooltip": "",
+    "helpUrl": ""
   }]
   );

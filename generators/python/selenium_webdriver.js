@@ -189,3 +189,26 @@ Blockly.Python['driver_get_command_executor_url'] = function(block) {
   var code = variable_object_name + '.command_executor._url';
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
+
+Blockly.Python['driver_var_set_remote'] = function(block) {
+  Blockly.Python.definitions_['import_webdriver'] = 'from selenium import webdriver';
+  var variable_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
+  var value_command_executor = Blockly.Python.valueToCode(block, 'COMMAND_EXECUTOR', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_option_headless = block.getFieldValue('OPTION_HEADLESS');
+  var code = '';
+  if(dropdown_option_headless != ""){
+    code += 'options = webdriver.ChromeOptions()\n';
+    code += 'options.add_argument(\'--headless\')\n';
+    code += variable_object_name + ' = webdriver.Remote(command_executor=' + value_command_executor + ',options=options)\n';
+  }else{
+    code += variable_object_name + ' = webdriver.Remote(command_executor=' + value_command_executor + ')\n';
+  }
+  return code;
+};
+
+Blockly.Python['driver_set_session_id'] = function(block) {
+  var variable_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
+  var value_sesshion_id = Blockly.Python.valueToCode(block, 'SESSHION_ID', Blockly.Python.ORDER_ATOMIC);
+  var code = variable_object_name + '.session_id = ' + value_sesshion_id + '\n';
+  return code;
+};
