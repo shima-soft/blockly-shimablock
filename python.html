@@ -18,6 +18,7 @@
 <script src="blocks_compressed.js"></script>
 <script src="msg/js/ja.js"></script>
 <script src="blocks/pickle.js"></script>
+<script src="blocks/py_func.js"></script>
 <script src="blocks/selenium_webdriver.js"></script>
 <script src="blocks/selenium_webelement.js"></script>
 <script src="blocks/time.js"></script>
@@ -32,6 +33,7 @@
 <script src="generators/python/variables.js"></script>
 <script src="generators/python/variables_dynamic.js"></script>
 <script src="generators/python/pickle.js"></script>
+<script src="generators/python/py_func.js"></script>
 <script src="generators/python/selenium_webdriver.js"></script>
 <script src="generators/python/selenium_webelement.js"></script>
 <script src="generators/python/time.js"></script>
@@ -425,6 +427,29 @@
     </block>
   </category>
   <sep></sep>
+  <category name="組み込み関数" colour="30">
+    <category name="open" colour="30">
+      <label text="テキストファイル操作"></label>
+      <block type="py_func_open_text">
+        <value name="PATH">
+          <shadow type="text">
+            <field name="TEXT">file.txt</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="py_func_open_read"></block>
+      <block type="py_func_open_readline"></block>
+      <block type="py_func_open_readlines"></block>
+      <block type="py_func_open_write">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">文字列</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="py_func_open_writelines"></block>
+    </category>
+  </category>
   <category name="Selenium" colour="180">
     <category name="Webdriver" colour="180">
       <label text="Webdriver"></label>
