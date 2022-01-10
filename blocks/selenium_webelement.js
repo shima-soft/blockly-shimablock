@@ -6,7 +6,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "element"
+        "variable": "element",
+        "variableTypes": ["element"],
+        "defaultType": "element"    
       },
       {
         "type": "input_dummy"
@@ -30,7 +32,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "element"
+        "variable": "element",
+        "variableTypes": ["element"],
+        "defaultType": "element"    
       }
     ],
     "output": "element",
@@ -45,7 +49,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "element"
+        "variable": "element",
+        "variableTypes": ["element"],
+        "defaultType": "element"    
       },
       {
         "type": "field_dropdown",
@@ -87,7 +93,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "element"
+        "variable": "element",
+        "variableTypes": ["element"],
+        "defaultType": "element"    
       },
       {
         "type": "field_dropdown",
@@ -161,7 +169,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "element"
+        "variable": "element",
+        "variableTypes": ["element"],
+        "defaultType": "element"    
       },
       {
         "type": "field_dropdown",
@@ -220,7 +230,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "element"
+        "variable": "element",
+        "variableTypes": ["element"],
+        "defaultType": "element"    
       },
       {
         "type": "field_dropdown",
@@ -315,7 +327,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "element"
+        "variable": "element",
+        "variableTypes": ["element"],
+        "defaultType": "element"    
       },
       {
         "type": "field_dropdown",
@@ -349,7 +363,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "element"
+        "variable": "element",
+        "variableTypes": ["element"],
+        "defaultType": "element"    
       },
       {
         "type": "input_value",
@@ -370,7 +386,9 @@ Blockly.defineBlocksWithJsonArray(
       {
         "type": "field_variable",
         "name": "OBJECT_NAME",
-        "variable": "element"
+        "variable": "element",
+        "variableTypes": ["element"],
+        "defaultType": "element"    
       },
       {
         "type": "input_value",
