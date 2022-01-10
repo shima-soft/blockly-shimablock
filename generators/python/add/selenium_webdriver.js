@@ -1,3 +1,4 @@
+Blockly.Variables.NAME_TYPE = 'VARIABLE';
 Blockly.Python['driver_var_set'] = function(block) {
   Blockly.Python.definitions_['import_webdriver'] = 'from selenium import webdriver';
   var variable_object_name = Blockly.Python.nameDB_.getName(block.getFieldValue('OBJECT_NAME'), Blockly.Variables.NAME_TYPE);
