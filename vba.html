@@ -519,7 +519,7 @@ workspace.addChangeListener(function() {
   let RootBlock;
   allBlocks.forEach(element => {
     RootBlock = element.getRootBlock();
-    if (RootBlock.type == "excel_start") {
+    if (RootBlock.type == "start") {
       element.setEnabled(true);
     }else{
       element.setEnabled(false);
