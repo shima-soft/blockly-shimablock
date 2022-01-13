@@ -165,7 +165,7 @@ Blockly.VBA['lists_setIndex'] = function(block) {
     if (list.match(/^\w+$/)) {
       return '';
     }
-    var listVar = Blockly.VBA.variableDB_.getDistinctName(
+    var listVar = Blockly.VBA.nameDB_.getDistinctName(
         'tmpList', Blockly.VARIABLE_CATEGORY_NAME);
     var code = 'var ' + listVar + ' = ' + list + ';\n';
     list = listVar;
@@ -211,7 +211,7 @@ Blockly.VBA['lists_setIndex'] = function(block) {
       break;
     case ('RANDOM'):
       var code = cacheList();
-      var xVar = Blockly.VBA.variableDB_.getDistinctName(
+      var xVar = Blockly.VBA.nameDB_.getDistinctName(
           'tmpX', Blockly.VARIABLE_CATEGORY_NAME);
       code += 'var ' + xVar + ' = Math.floor(Math.random() * ' + list +
           '.length);\n';

@@ -36,21 +36,21 @@ Blockly.VBA['book_activeworkbook_sheet'] = function(block) {
 };
 
 Blockly.VBA['book_var_sheet'] = function(block) {
-  var variable_object_book = Blockly.VBA.variableDB_.getName(block.getFieldValue('OBJECT_BOOK'), Blockly.Variables.NAME_TYPE);
+  var variable_object_book = Blockly.VBA.nameDB_.getName(block.getFieldValue('OBJECT_BOOK'), Blockly.Variables.NAME_TYPE);
   var value_object_sheets_sheet = Blockly.VBA.valueToCode(block, 'OBJECT_SHEETS_SHEET', Blockly.VBA.ORDER_ATOMIC);
   var code = variable_object_book + '.' + value_object_sheets_sheet;
   return [code, Blockly.VBA.ORDER_ATOMIC];
 };
 
 Blockly.VBA['book_var_set'] = function(block) {
-  var variable_var_book = Blockly.VBA.variableDB_.getName(block.getFieldValue('VAR_BOOK'), Blockly.Variables.NAME_TYPE);
+  var variable_var_book = Blockly.VBA.nameDB_.getName(block.getFieldValue('VAR_BOOK'), Blockly.Variables.NAME_TYPE);
   var value_object_book = Blockly.VBA.valueToCode(block, 'OBJECT_BOOK', Blockly.VBA.ORDER_ATOMIC);
   var code = 'Set ' + variable_var_book + ' = ' + value_object_book + '\n';
   return code;
 };
 
 Blockly.VBA['book_var_get'] = function(block) {
-  var variable_object_book = Blockly.VBA.variableDB_.getName(block.getFieldValue('OBJECT_BOOK'), Blockly.Variables.NAME_TYPE);
+  var variable_object_book = Blockly.VBA.nameDB_.getName(block.getFieldValue('OBJECT_BOOK'), Blockly.Variables.NAME_TYPE);
   var code = variable_object_book;
   return [code, Blockly.VBA.ORDER_ATOMIC];
 };

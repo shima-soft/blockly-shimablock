@@ -8,7 +8,7 @@ goog.require('Blockly.VBA');
 
 Blockly.VBA['procedures_defreturn'] = function(block) {
   // Define a procedure with a return value.
-  var funcName = Blockly.VBA.variableDB_.getName(
+  var funcName = Blockly.VBA.nameDB_.getName(
       block.getFieldValue('NAME'), Blockly.PROCEDURE_CATEGORY_NAME);
   var xfix1 = '';
   if (Blockly.VBA.STATEMENT_PREFIX) {
@@ -42,7 +42,7 @@ Blockly.VBA['procedures_defreturn'] = function(block) {
   var args = [];
   var variables = block.getVars();
   for (var i = 0; i < variables.length; i++) {
-    args[i] = Blockly.VBA.variableDB_.getName(variables[i],
+    args[i] = Blockly.VBA.nameDB_.getName(variables[i],
         Blockly.VARIABLE_CATEGORY_NAME);
   }
   var code = 'function ' + funcName + '(' + args.join(', ') + ') {\n' +
@@ -60,7 +60,7 @@ Blockly.VBA['procedures_defnoreturn'] =
 
 Blockly.VBA['procedures_callreturn'] = function(block) {
   // Call a procedure with a return value.
-  var funcName = Blockly.VBA.variableDB_.getName(
+  var funcName = Blockly.VBA.nameDB_.getName(
       block.getFieldValue('NAME'), Blockly.PROCEDURE_CATEGORY_NAME);
   var args = [];
   var variables = block.getVars();

@@ -193,7 +193,7 @@ Blockly.VBA['math_change'] = function(block) {
   // Add to a variable in place.
   var argument0 = Blockly.VBA.valueToCode(block, 'DELTA',
       Blockly.VBA.ORDER_ADDITION) || '0';
-  var varName = Blockly.VBA.variableDB_.getName(
+  var varName = Blockly.VBA.nameDB_.getName(
       block.getFieldValue('VAR'), Blockly.VARIABLE_CATEGORY_NAME);
   return varName + ' = ' + varName + ' + ' + argument0 + '\n';
 };

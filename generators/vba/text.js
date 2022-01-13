@@ -73,7 +73,7 @@ Blockly.VBA['text_join'] = function(block) {
 
 Blockly.VBA['text_append'] = function(block) {
   // Append to a variable in place.
-  var varName = Blockly.VBA.variableDB_.getName(
+  var varName = Blockly.VBA.nameDB_.getName(
       block.getFieldValue('VAR'), Blockly.VARIABLE_CATEGORY_NAME);
   var value = Blockly.VBA.valueToCode(block, 'TEXT',
       Blockly.VBA.ORDER_NONE) || '\"\"';

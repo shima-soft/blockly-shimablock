@@ -19,11 +19,11 @@ Blockly.VBA['controls_repeat_ext'] = function(block) {
   var branch = Blockly.VBA.statementToCode(block, 'DO');
   branch = Blockly.VBA.addLoopTrap(branch, block);
   var code = '';
-  var loopVar = Blockly.VBA.variableDB_.getDistinctName(
+  var loopVar = Blockly.VBA.nameDB_.getDistinctName(
       'forCount', Blockly.VARIABLE_CATEGORY_NAME);
   var endVar = repeats;
   if (!repeats.match(/^\w+$/) && !Blockly.isNumber(repeats)) {
-    endVar = Blockly.VBA.variableDB_.getDistinctName(
+    endVar = Blockly.VBA.nameDB_.getDistinctName(
         'repeatEnd', Blockly.VARIABLE_CATEGORY_NAME);
     code += 'Dim ' + endVar + '\n';
     code += endVar + ' = ' + repeats + '\n';
@@ -53,7 +53,7 @@ Blockly.VBA['controls_whileUntil'] = function(block) {
 
 Blockly.VBA['controls_for'] = function(block) {
   // For loop.
-  var variable0 = Blockly.VBA.variableDB_.getName(
+  var variable0 = Blockly.VBA.nameDB_.getName(
       block.getFieldValue('VAR'), Blockly.VARIABLE_CATEGORY_NAME);
   var argument0 = Blockly.VBA.valueToCode(block, 'FROM',
       Blockly.VBA.ORDER_NONE) || '0';
@@ -74,7 +74,7 @@ Blockly.VBA['controls_for'] = function(block) {
 
 Blockly.VBA['controls_forEach'] = function(block) {
   // For each loop.
-  var variable0 = Blockly.VBA.variableDB_.getName(
+  var variable0 = Blockly.VBA.nameDB_.getName(
       block.getFieldValue('VAR'), Blockly.VARIABLE_CATEGORY_NAME);
   var argument0 = Blockly.VBA.valueToCode(block, 'LIST',
       Blockly.VBA.ORDER_NONE) || '';
@@ -84,7 +84,7 @@ Blockly.VBA['controls_forEach'] = function(block) {
   // Cache non-trivial values to variables to prevent repeated look-ups.
   var listVar = argument0;
   if (!argument0.match(/^\w+$/)) {
-    listVar = Blockly.VBA.variableDB_.getDistinctName(
+    listVar = Blockly.VBA.nameDB_.getDistinctName(
         variable0 + '_list', Blockly.VARIABLE_CATEGORY_NAME);
     code += 'Dim ' + listVar + '() As Variant\n';
   }
@@ -94,7 +94,7 @@ Blockly.VBA['controls_forEach'] = function(block) {
 
 Blockly.VBA['controls_forEach_workbooks'] = function(block) {
   // For each loop.
-  var variable0 = Blockly.VBA.variableDB_.getName(
+  var variable0 = Blockly.VBA.nameDB_.getName(
       block.getFieldValue('VAR'), Blockly.VARIABLE_CATEGORY_NAME);
   var argument0 = Blockly.VBA.valueToCode(block, 'LIST',
       Blockly.VBA.ORDER_NONE) || '';

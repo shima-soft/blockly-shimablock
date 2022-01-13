@@ -9,7 +9,7 @@ Blockly.VBA['set_name'] = function(block) {
 Blockly.VBA['set_open'] = function(block) {
   var text_file_name = block.getFieldValue('FILE_NAME');
   var dropdown_read_only = block.getFieldValue('READ_ONLY');
-  var variable_name = Blockly.VBA.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  var variable_name = Blockly.VBA.nameDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
   // TODO: Assemble VBA into code variable.
   var code = 'Set ' + variable_name + ' = Workbooks.Open(Filename:="' + text_file_name + '", ' + dropdown_read_only + ')\n';
   return code;
