@@ -1,6 +1,6 @@
 function setStartBlock() {
   workspace.clear();
-  let xml = '<xml xmlns="https://developers.google.com/blockly/xml"><block type="excel_start" editable="false" deletable="false" movable="false" x="30" y="30"></block></xml>';
+  let xml = '<xml xmlns="https://developers.google.com/blockly/xml"><block type="start" editable="false" deletable="false" movable="false" x="30" y="30"></block></xml>';
   let dom = Blockly.Xml.textToDom(xml);
   Blockly.Xml.domToWorkspace(dom, workspace);
 }
