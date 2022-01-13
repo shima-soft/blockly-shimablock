@@ -537,6 +537,7 @@ workspace.addChangeListener(function() {
   const code = Blockly.Python.workspaceToCode(workspace);
   codebox.value = code;
 });
+workspace.addChangeListener(Blockly.Events.disableOrphans);
 workspace.registerButtonCallback('createVariableDriver', function(button){
   Blockly.Variables.createVariableButtonHandler(button.getTargetWorkspace(), null, 'driver');
 });

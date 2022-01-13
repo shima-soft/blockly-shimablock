@@ -526,6 +526,7 @@ workspace.addChangeListener(function() {
     }  
   });
 });
+workspace.addChangeListener(Blockly.Events.disableOrphans);
 workspace.registerButtonCallback('createVariableWorkbook', function(button){
   Blockly.Variables.createVariableButtonHandler(button.getTargetWorkspace(), null, 'Workbook');
 });
