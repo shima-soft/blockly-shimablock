@@ -17,6 +17,7 @@ Blockly.VBA = new Blockly.Generator('VBA');
 
 Blockly.VBA.INDENT = '    ';
 Blockly.VBA.PROCEDURE_NAME = 'Main';
+Blockly.Variables.NAME_TYPE = 'VARIABLE';
 
 /**
  * List of illegal variable names.
@@ -123,14 +124,14 @@ Blockly.VBA.init = function(workspace) {
   // to actual function names (to avoid collisions with user functions).
   Blockly.VBA.functionNames_ = Object.create(null);
 
-  if (!Blockly.VBA.variableDB_) {
-    Blockly.VBA.variableDB_ =
+  if (!Blockly.VBA.nameDB_) {
+    Blockly.VBA.nameDB_ =
         new Blockly.Names(Blockly.VBA.RESERVED_WORDS_);
   } else {
-    Blockly.VBA.variableDB_.reset();
+    Blockly.VBA.nameDB_.reset();
   }
 
-  Blockly.VBA.variableDB_.setVariableMap(workspace.getVariableMap());
+  Blockly.VBA.nameDB_.setVariableMap(workspace.getVariableMap());
 
   var defvars = [];
   var defvars_workbook = [];
@@ -138,7 +139,7 @@ Blockly.VBA.init = function(workspace) {
   // Add developer variables (not created or named by the user).
   var devVarList = Blockly.Variables.allDeveloperVariables(workspace);
   for (var i = 0; i < devVarList.length; i++) {
-    defvars.push(Blockly.VBA.variableDB_.getName(devVarList[i],
+    defvars.push(Blockly.VBA.nameDB_.getName(devVarList[i],
         Blockly.Names.DEVELOPER_VARIABLE_TYPE));
   }
 
@@ -146,13 +147,13 @@ Blockly.VBA.init = function(workspace) {
   var variables = Blockly.Variables.allUsedVarModels(workspace);
   for (var i = 0; i < variables.length; i++) {
     if (variables[i]['type'] == 'Workbook') {
-      defvars_workbook.push(Blockly.VBA.variableDB_.getName(variables[i].getId(),
+      defvars_workbook.push(Blockly.VBA.nameDB_.getName(variables[i].getId(),
       Blockly.VARIABLE_CATEGORY_NAME).concat(" As Workbook"));
     } else if (variables[i]['type'] == 'Worksheet') {
-      defvars_worksheet.push(Blockly.VBA.variableDB_.getName(variables[i].getId(),
+      defvars_worksheet.push(Blockly.VBA.nameDB_.getName(variables[i].getId(),
       Blockly.VARIABLE_CATEGORY_NAME).concat(" As Worksheet"));
     } else {
-      defvars.push(Blockly.VBA.variableDB_.getName(variables[i].getId(),
+      defvars.push(Blockly.VBA.nameDB_.getName(variables[i].getId(),
       Blockly.VARIABLE_CATEGORY_NAME));
     }
   }
@@ -189,7 +190,7 @@ Blockly.VBA.finish = function(code) {
   // Clean up temporary data.
   delete Blockly.VBA.definitions_;
   delete Blockly.VBA.functionNames_;
-  Blockly.VBA.variableDB_.reset();
+  Blockly.VBA.nameDB_.reset();
   if (definitions.length){
     var def_code = definitions.join('\n') + '\n\n' + code
   } else {
