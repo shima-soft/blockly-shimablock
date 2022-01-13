@@ -515,16 +515,6 @@ workspace.addChangeListener(function() {
   const codebox = document.getElementById("codeOutput");
   const code = Blockly.VBA.workspaceToCode(workspace);
   codebox.value = code;
-  let allBlocks = workspace.getAllBlocks();
-  let RootBlock;
-  allBlocks.forEach(element => {
-    RootBlock = element.getRootBlock();
-    if (RootBlock.type == "start") {
-      element.setEnabled(true);
-    }else{
-      element.setEnabled(false);
-    }  
-  });
 });
 workspace.addChangeListener(Blockly.Events.disableOrphans);
 workspace.registerButtonCallback('createVariableWorkbook', function(button){
