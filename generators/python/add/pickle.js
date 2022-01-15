@@ -6,6 +6,8 @@ Blockly.Python['pickle_dump'] = function(block) {
   if(getSurroundParent_block){
     if(getSurroundParent_block.type != 'pickle_open_dump')this.unplug();
     file_obj_name = pickle_file_obj_name[getSurroundParent_block.id];
+  }else{
+    this.unplug();
   }
   var variable_target_name = Blockly.Python.nameDB_.getName(block.getFieldValue('TARGET_NAME'), Blockly.Variables.NAME_TYPE);
   var dropdown_protocol = block.getFieldValue('PROTOCOL');
@@ -23,6 +25,8 @@ Blockly.Python['pickle_load'] = function(block) {
   if(getSurroundParent_block){
     if(getSurroundParent_block.type != 'pickle_open_load')this.unplug();
     file_obj_name = pickle_file_obj_name[getSurroundParent_block.id];
+  }else{
+    this.unplug();
   }
   var variable_target_name = Blockly.Python.nameDB_.getName(block.getFieldValue('TARGET_NAME'), Blockly.Variables.NAME_TYPE);
   var code = variable_target_name + ' = pickle.load(' + file_obj_name + ')\n';
