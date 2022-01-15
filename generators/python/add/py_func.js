@@ -26,6 +26,7 @@ Blockly.Python['py_func_open_read'] = function(block) {
     if(getSurroundParent_block.type != 'py_func_open_text')this.unplug();
     var code = variable_name + ' = ' + file_object_name[getSurroundParent_block.id] + '.read()\n';
   }else{
+    this.unplug();
     var code = variable_name + ' = ' + 'f.read()\n';
   }
   return code;
@@ -38,6 +39,7 @@ Blockly.Python['py_func_open_readline'] = function(block) {
     if(getSurroundParent_block.type != 'py_func_open_text')this.unplug();
     var code = variable_name + ' = ' + file_object_name[getSurroundParent_block.id] + '.readline()\n';
   }else{
+    this.unplug();
     var code = variable_name + ' = ' + 'f.readline()\n';
   }
   return code;
@@ -50,6 +52,7 @@ Blockly.Python['py_func_open_readlines'] = function(block) {
     if(getSurroundParent_block.type != 'py_func_open_text')this.unplug();
     var code = variable_name + ' = ' + file_object_name[getSurroundParent_block.id] + '.readlines()\n';
   }else{
+    this.unplug();
     var code = variable_name + ' = ' + 'f.readlines()\n';
   }
   return code;
@@ -62,6 +65,7 @@ Blockly.Python['py_func_open_write'] = function(block) {
     if(getSurroundParent_block.type != 'py_func_open_text')this.unplug();
     var code = file_object_name[getSurroundParent_block.id] + '.write(' + value_text + ')\n';
   }else{
+    this.unplug();
     var code = 'f.write(' + value_text + ')\n';
   }
   return code;
@@ -74,6 +78,7 @@ Blockly.Python['py_func_open_writelines'] = function(block) {
     if(getSurroundParent_block.type != 'py_func_open_text')this.unplug();
     var code = file_object_name[getSurroundParent_block.id] + '.writelines(' + variable_list + ')\n';
   }else{
+    this.unplug();
     var code = 'f.writelines(' + variable_list + ')\n';
   }
   return code;
