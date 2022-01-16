@@ -510,7 +510,13 @@
     </category>
   </category>
   <category name="time" colour="345">
-    <block type="time_method_sleep"></block>
+    <block type="time_method_sleep">
+      <value name="SEC">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
   </category>
   <category name="pickle" colour="45">
     <block type="pickle_open_dump"></block>
