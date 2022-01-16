@@ -193,5 +193,19 @@ Blockly.defineBlocksWithJsonArray(
     "colour": 30,
     "tooltip": "",
     "helpUrl": ""
+  },
+  {
+    "type": "py_dir",
+    "message0": "%1 の属性・名前を返す",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "OBJECT_NAME"
+      }
+    ],
+    "output": null,
+    "colour": 0,
+    "tooltip": "",
+    "helpUrl": ""
   }]
   );

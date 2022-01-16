@@ -83,3 +83,9 @@ Blockly.Python['py_func_open_writelines'] = function(block) {
   }
   return code;
 };
+
+Blockly.Python['py_dir'] = function(block) {
+  var value_object_name = Blockly.Python.valueToCode(block, 'OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var code = 'dir(' + value_object_name + ')';
+  return [code, Blockly.Python.ORDER_NONE];
+};
