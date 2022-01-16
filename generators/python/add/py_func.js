@@ -89,3 +89,9 @@ Blockly.Python['py_dir'] = function(block) {
   var code = 'dir(' + value_object_name + ')';
   return [code, Blockly.Python.ORDER_NONE];
 };
+
+Blockly.Python['py_type'] = function(block) {
+  var value_object_name = Blockly.Python.valueToCode(block, 'OBJECT_NAME', Blockly.Python.ORDER_ATOMIC);
+  var code = 'type(' + value_object_name + ')';
+  return [code, Blockly.Python.ORDER_NONE];
+};
