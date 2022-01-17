@@ -574,12 +574,12 @@ workspace.registerButtonCallback('createVariableWebelement', function(button){
     output.value = xml_text;
   }
   function fromXml() {
-  var input = document.getElementById('importExport');
-  if (!input.value) {
-    return;
-  }
+    var input = document.getElementById('importExport');
+    if (!input.value) {
+      return;
+    }
   var xml = Blockly.Xml.textToDom(input.value);
-  Blockly.Xml.domToWorkspace(xml, workspace);
+    Blockly.Xml.domToWorkspace(xml, workspace);
   }
   function codeCopy() {
     var code = document.getElementById('codeOutput').innerText;
