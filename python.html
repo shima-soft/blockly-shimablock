@@ -582,9 +582,13 @@ workspace.registerButtonCallback('createVariableWebelement', function(button){
   Blockly.Xml.domToWorkspace(xml, workspace);
   }
   function codeCopy() {
-    var code = document.getElementById('codeOutput');
-    code.select();
+    var code = document.getElementById('codeOutput').innerText;
+    var area = document.createElement("textarea");
+    area.textContent = code;
+    document.body.appendChild(area);
+    area.select();
     document.execCommand("copy");
+    document.body.removeChild(area);
   }
   window.onload = setStartBlock();
 </script>
