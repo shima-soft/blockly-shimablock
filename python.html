@@ -32,6 +32,9 @@
 <script src="./generators/python/add/selenium_webelement.js"></script>
 <script src="./generators/python/add/time.js"></script>
 <script src="./main.js"></script>
+<link rel="stylesheet" href="./highlight/styles/default.min.css">
+<script src="./highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </head>
 <body>
 <table width="100%">
@@ -59,7 +62,7 @@
     </tr>
     <tr>
       <td nowrap="nowrap"><div id="blocklyDiv" style="height: 800px; width: 100%;"></div></td>
-      <td nowrap="nowrap"><textarea id="codeOutput" style="height: 800px; width: 100%;" wrap="off" readonly></textarea></td>
+      <td nowrap="nowrap"><pre><code id="codeOutput" class="language-python" style="height: 800px; width: 100%;"></code></pre></td>
     </tr>
   </tbody>
 </table>
@@ -552,7 +555,8 @@ var workspace = Blockly.inject('blocklyDiv',
 workspace.addChangeListener(function() {
   const codebox = document.getElementById("codeOutput");
   const code = Blockly.Python.workspaceToCode(workspace);
-  codebox.value = code;
+  codebox.textContent = code;
+  hljs.highlightAll();
 });
 workspace.addChangeListener(Blockly.Events.disableOrphans);
 workspace.registerButtonCallback('createVariableDriver', function(button){
