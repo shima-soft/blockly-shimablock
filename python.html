@@ -58,7 +58,10 @@
           </tbody>
         </table>
       </td>
-      <td width="30%">Python <button onclick="codeCopy();">codeCopy</button></td>
+      <td width="30%">
+        Python <button onclick="codeCopy();">コードコピー</button><button onclick="document.getElementById('codeDownload').click();">ダウンロード</button>
+        <a id="codeDownload" href="#" download="download.py" onclick="codeDownload();" style="display: none;">codeDownload</a>
+      </td>
     </tr>
     <tr>
       <td nowrap="nowrap"><div id="blocklyDiv" style="height: 800px; width: 100%;"></div></td>

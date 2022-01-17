@@ -54,3 +54,18 @@ function downloadXml() {
       document.getElementById("download").href = window.URL.createObjectURL(blob);
   }
 }
+
+function codeDownload() {
+  var project_name = document.getElementById("project_name").value;
+  var download_file_name = "shimablock_" + project_name + ".py";
+  document.getElementById("codeDownload").download = download_file_name;
+
+  var code = Blockly.Python.workspaceToCode(workspace);
+  var content = code;
+  var blob = new Blob([ content ], { "type" : "text/plain" });
+  if (window.navigator.msSaveBlob) { 
+      window.navigator.msSaveOrOpenBlob(blob, download_file_name); 
+  } else {
+      document.getElementById("codeDownload").href = window.URL.createObjectURL(blob);
+  }
+}
