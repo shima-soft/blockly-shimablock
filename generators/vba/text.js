@@ -43,32 +43,13 @@ Blockly.VBA.text.forceString_ = function(value) {
 Blockly.VBA.text.forceString_.strRegExp = /^\s*'([^']|\\')*'\s*$/;
 
 Blockly.VBA['text_join'] = function(block) {
-  // Create a string made up of any number of elements of any type.
-  switch (block.itemCount_) {
-    case 0:
-      return ['\'\'', Blockly.VBA.ORDER_ATOMIC];
-    case 1:
-      var element = Blockly.VBA.valueToCode(block, 'ADD0',
-          Blockly.VBA.ORDER_NONE) || '\'\'';
-      var codeAndOrder = Blockly.VBA.text.forceString_(element);
-      return codeAndOrder;
-    case 2:
-      var element0 = Blockly.VBA.valueToCode(block, 'ADD0',
-          Blockly.VBA.ORDER_NONE) || '\'\'';
-      var element1 = Blockly.VBA.valueToCode(block, 'ADD1',
-          Blockly.VBA.ORDER_NONE) || '\'\'';
-      var code = Blockly.VBA.text.forceString_(element0)[0] +
-          ' + ' + Blockly.VBA.text.forceString_(element1)[0];
-      return [code, Blockly.VBA.ORDER_ADDITION];
-    default:
-      var elements = new Array(block.itemCount_);
-      for (var i = 0; i < block.itemCount_; i++) {
-        elements[i] = Blockly.VBA.valueToCode(block, 'ADD' + i,
-            Blockly.VBA.ORDER_NONE) || '\'\'';
-      }
-      var code = '[' + elements.join(',') + '].join(\'\')';
-      return [code, Blockly.VBA.ORDER_ATOMIC];
-  }
+    var elements = new Array(block.itemCount_);
+    for (var i = 0; i < block.itemCount_; i++) {
+      elements[i] = Blockly.VBA.valueToCode(block, 'ADD' + i,
+          Blockly.VBA.ORDER_NONE) || '\"\"';
+    }
+    var code = elements.join(' & ');
+    return [code, Blockly.VBA.ORDER_ATOMIC];
 };
 
 Blockly.VBA['text_append'] = function(block) {
