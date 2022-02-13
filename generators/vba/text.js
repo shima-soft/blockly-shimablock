@@ -43,13 +43,13 @@ Blockly.VBA.text.forceString_ = function(value) {
 Blockly.VBA.text.forceString_.strRegExp = /^\s*'([^']|\\')*'\s*$/;
 
 Blockly.VBA['text_join'] = function(block) {
-    var elements = new Array(block.itemCount_);
-    for (var i = 0; i < block.itemCount_; i++) {
-      elements[i] = Blockly.VBA.valueToCode(block, 'ADD' + i,
-          Blockly.VBA.ORDER_NONE) || '\"\"';
-    }
-    var code = elements.join(' & ');
-    return [code, Blockly.VBA.ORDER_ATOMIC];
+  var elements = new Array(block.itemCount_);
+  for (var i = 0; i < block.itemCount_; i++) {
+    elements[i] = Blockly.VBA.valueToCode(block, 'ADD' + i,
+        Blockly.VBA.ORDER_NONE) || '\"\"';
+  }
+  var code = elements.join(' & ');
+  return [code, Blockly.VBA.ORDER_ATOMIC];
 };
 
 Blockly.VBA['text_append'] = function(block) {
